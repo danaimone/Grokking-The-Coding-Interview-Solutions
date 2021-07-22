@@ -2,11 +2,11 @@ import math
 import unittest
 
 
-class TripletTargetTest(unittest.TestCase):
+class triplettargettest(unittest.testcase):
     def test_triplet_close_to_target(self):
-        self.assertEqual(triplet_sum_close_to_target([-2, 0, 1, 2], 2), 1)
-        self.assertEqual(triplet_sum_close_to_target([-3, -1, 1, 2], 1), 0)
-        self.assertEqual(triplet_sum_close_to_target([1, 0, 1, 1], 100), 3)
+        self.assertequal(triplet_sum_close_to_target([-2, 0, 1, 2], 2), 1)
+        self.assertequal(triplet_sum_close_to_target([-3, -1, 1, 2], 1), 0)
+        self.assertequal(triplet_sum_close_to_target([1, 0, 1, 1], 100), 3)
 
 
 def triplet_sum_close_to_target(arr, target_sum):
