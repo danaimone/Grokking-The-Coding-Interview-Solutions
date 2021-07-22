@@ -2,7 +2,7 @@ import math
 import unittest
 
 
-class triplettargettest(unittest.testcase):
+class TripletTargetTest(unittest.TestCase):
     def test_triplet_close_to_target(self):
         self.assertequal(triplet_sum_close_to_target([-2, 0, 1, 2], 2), 1)
         self.assertequal(triplet_sum_close_to_target([-3, -1, 1, 2], 1), 0)
