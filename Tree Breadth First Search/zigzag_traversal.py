@@ -9,7 +9,7 @@ class TreeNode:
 
 def traverse(root):
     result = []
-    if result is None:
+    if root is None:
         return result
 
     queue = deque()
@@ -32,7 +32,6 @@ def traverse(root):
 
         result.append(list(current_level))
         left_to_right = not left_to_right
-
 
     return result
 

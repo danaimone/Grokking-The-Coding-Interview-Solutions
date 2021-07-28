@@ -7,8 +7,8 @@ class TreeNode:
         self.left, self.right = None, None
 
 
-def traverse(root):
-    result = deque()
+def find_level_averages(root):
+    result = []
     if root is None:
         return result
 
@@ -24,7 +24,8 @@ def traverse(root):
                 queue.append(current_node.left)
             if current_node.right:
                 queue.append(current_node.right)
-        result.appendleft(current_level)
+        average = sum(current_level) / level_size
+        result.append(average)
 
     return result
 
@@ -34,9 +35,10 @@ def main():
     root.left = TreeNode(7)
     root.right = TreeNode(1)
     root.left.left = TreeNode(9)
+    root.left.right = TreeNode(2)
     root.right.left = TreeNode(10)
     root.right.right = TreeNode(5)
-    print("Reverse level order traversal: " + str(traverse(root)))
+    print("Level averages are: " + str(find_level_averages(root)))
 
 
 if __name__ == "__main__":

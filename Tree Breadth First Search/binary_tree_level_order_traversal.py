@@ -9,7 +9,7 @@ class TreeNode:
 
 def traverse(root):
     result = []
-    if result is None:
+    if root is None:
         return result
 
     queue = deque()
