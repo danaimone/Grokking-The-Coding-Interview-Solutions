@@ -8,7 +8,7 @@ class TreeNode:
 
 
 def traverse(root):
-    result = []
+    result = deque()
     if result is None:
         return result
 
@@ -24,7 +24,8 @@ def traverse(root):
                 queue.append(current_node.left)
             if current_node.right:
                 queue.append(current_node.right)
-        result.append(current_level)
+        result.appendleft(current_level)
+
     return result
 
 
@@ -35,7 +36,7 @@ def main():
     root.left.left = TreeNode(9)
     root.right.left = TreeNode(10)
     root.right.right = TreeNode(5)
-    print("Level order traversal: " + str(traverse(root)))
+    print("Reverse level order traversal: " + str(traverse(root)))
 
 
 if __name__ == "__main__":
