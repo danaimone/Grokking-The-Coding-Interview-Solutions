@@ -5,26 +5,21 @@ class TreeNode:
         self.right = right
 
 
-def find_sum_of_path_numbers_recursive(current_node, current_path, all_paths):
-    if current_node is None:
-        return
+def find_sum_of_path_numbers(root):
+    return find_root_to_leaf_path_numbers(root, 0)
 
-    current_path.append(current_node.val)
+
+def find_root_to_leaf_path_numbers(current_node, path_sum):
+    if current_node is None:
+        return 0
+
+    path_sum = 10 * path_sum + current_node.val
 
     if current_node.left is None and current_node.right is None:
-        for i in current_path:
-            completed_num_path = int("".join(map(str, current_path)))
-        all_paths.append(completed_num_path)
-    else:
-        find_sum_of_path_numbers_recursive(current_node.left, current_path, all_paths)
-        find_sum_of_path_numbers_recursive(current_node.right, current_path, all_paths)
+        return path_sum
 
-    del current_path[-1]
-
-def find_sum_of_path_numbers(root):
-    all_paths = []
-    find_sum_of_path_numbers_recursive(root, [], all_paths)
-    return sum(all_paths)
+    return find_root_to_leaf_path_numbers(current_node.left, path_sum) \
+           + find_root_to_leaf_path_numbers(current_node.right, path_sum)
 
 
 if __name__ == "__main__":
@@ -35,5 +30,3 @@ if __name__ == "__main__":
     root.right.left = TreeNode(6)
     root.right.right = TreeNode(5)
     print("Total Sum of Path Numbers: " + str(find_sum_of_path_numbers(root)))
-
-
